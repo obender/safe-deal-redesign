@@ -1,5 +1,5 @@
 <template>
-<div style="height: 1800px">
+<div style="height: 1800px;">
   Home  
 </div>    
 </template>
