@@ -26,6 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
+$primaryColor: #71DF82;
 .link {
   text-decoration: none;
   padding: 10px;
@@ -42,7 +43,7 @@ export default {
 }
 .button {
   background-color: #fff;
-  color: #20b885;
+  color: $primaryColor;
   border-radius: 5px;
   padding: 10px 25px;
 }
@@ -51,7 +52,7 @@ export default {
 }
 .button--reverse{
   color: #fff;
-  background-color: #20b885;
+  background-color: $primaryColor;
 }
 .button--full{
   width: 100%

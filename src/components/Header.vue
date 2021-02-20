@@ -15,7 +15,9 @@
       <div class="header">
         <div class="header__item header__item--title">
           <v-img :src="logo" class="logo"></v-img>
-          <div :class="scroll > 0 ? 'mx-2' : 'mx-2'" style="color: #71DF82;">Safe Deal</div>
+          <div :class="scroll > 0 ? 'mx-2' : 'mx-2'" style="color: #71df82">
+            Safe Deal
+          </div>
         </div>
         <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer">
         </v-app-bar-nav-icon>
@@ -47,7 +49,7 @@
         <v-list-item-group active-class="deep-purple--text text--accent-4">
           <router-link
             class="link link--mobile"
-            style="color: #71DF82;"
+            style="color: #71df82"
             v-for="(menu, index) in menus"
             :key="index"
             :to="menu.link"
