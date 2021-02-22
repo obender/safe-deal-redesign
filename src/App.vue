@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="root">
     <Header />
     <v-sheet
       id="scrolling-techniques-7"
@@ -26,19 +26,33 @@ export default {
 </script>
 
 <style lang="scss">
-$primaryColor: #71DF82;
+// $primaryColor: #71DF82;
+$primaryColor: #00aa63;
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .link {
   text-decoration: none;
-  padding: 10px;
   font-size: 23px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.link:hover{
-  opacity: .8;
-}.link--mobile{}
-.link--mobile:hover{
+.link--small {
+  font-size: 16px;
+}
+.link:hover {
+  opacity: 0.8;
+}
+.link--mobile {
+  padding: 10px;
+  display: flex;
+}
+.link--mobile:hover {
   background-color: #eaeaea50;
 }
 .button {
@@ -47,18 +61,23 @@ $primaryColor: #71DF82;
   border-radius: 5px;
   padding: 10px 25px;
 }
-.button:hover{
-  opacity: .8;
+.button:hover {
+  opacity: 0.8;
 }
-.button--reverse{
+.button--reverse {
   color: #fff;
   background-color: $primaryColor;
 }
-.button--full{
-  width: 100%
+.button--full {
+  width: 100%;
 }
-.logo{
+.logo {
   width: 50px;
   height: 50px;
+}
+
+.bg {
+  background-image: url("./assets/img/bg-1_copy.png");
+  background-size: cover;
 }
 </style>

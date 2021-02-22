@@ -25,7 +25,7 @@
           <div v-for="(menu, index) in menus" :key="index" class="header__item">
             <router-link
               :style="scroll > 0 ? 'color: #71DF82' : 'color: white'"
-              class="link"
+              class="link mx-3"
               :to="menu.link"
               >{{ menu.name }}</router-link
             >
@@ -70,7 +70,7 @@
 export default {
   data() {
     return {
-      logo: require("../assets/img/logo.png"),
+      logo: require("../assets/img/logo.svg"),
       drawer: false,
       menus: [
         { id: 1, name: "Features", link: "#features" },
