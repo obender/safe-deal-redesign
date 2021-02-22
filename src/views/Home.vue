@@ -1,78 +1,80 @@
 <template>
   <div>
-    <div class="page page--reverse page--low-margin">
-      <div class="page__item page__item--big">
-        <div>
-          <div
-            :style="winWidth > mobileWidth ? 'margin: 0 100px' : 'margin: 0'"
-          >
-            <span :style="{ ...style, fontSize: '14px' }">Absulately</span>
-            <div
-              :style="{
-                ...style,
-                fontSize: winWidth > mobileWidth ? '52px' : '32px',
-              }"
-            >
-              Free extention
+    <Header />
+    <v-container
+      fluid
+      class="root"
+      :style="`background-image: url('${require('../assets/bg__top.png')}'); background-size: cover;`"
+    >
+      <v-container>
+        <div class="page page--reverse page--low-margin">
+          <div class="page__item page__item--big">
+            <div>
+              <div
+                :style="
+                  winWidth > mobileWidth ? 'margin: 0 100px' : 'margin: 0'
+                "
+              >
+                <span :style="{ ...style, fontSize: '14px' }">Absulately</span>
+                <div
+                  :style="{
+                    ...style,
+                    fontSize: winWidth > mobileWidth ? '52px' : '32px',
+                  }"
+                >
+                  Free extention
+                </div>
+              </div>
+              <img
+                class="page__item__card__image"
+                :src="require('../assets/img/card/card.svg')"
+                alt=""
+              />
             </div>
           </div>
-          <img
-            class="page__item__card__image"
-            :src="require('../assets/img/card/card.svg')"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="page__item page__item--small">
-        <div class="main-item">
-          <div class="page__item__title main-title">
-            Shop Online with Confidence
-          </div>
-          <div class="page__item__title page__item__content">
-            Safe Deal products you from online security issuse
-          </div>
-          <button class="button button--reverse">Add to Chrome</button>
-        </div>
-      </div>
-    </div>
-    <div class="page page--low-margin">
-      <div class="page__item page__item--how-to">
-        <img
-          class="page__item__card__image"
-          :src="require('../assets/img/howTo.svg')"
-          alt=""
-        />
-      </div>
-    </div>
-    <div
-      v-for="(page, index) in pages"
-      :key="index"
-      :class="page.id % 2 !== 0 ? 'page' : 'page page--reverse'"
-    >
-      <div class="page__item page__item--left">
-        <div class="page__item__card">
-          <img class="page__item__card__image" :src="page.img" alt="" />
-        </div>
-      </div>
-      <div class="page__item page__item--right">
-        <div class="page__item__title">
-          <div class="page__item__title page__item__title--small">
-            0{{ index + 1 }}
-          </div>
-          <div class="page__item__title page__item__title--big">
-            {{ page.title }}
-          </div>
-          <div class="page__item__content">
-            {{ page.content }}
-          </div>
-          <div>
-            <router-link class="link link--small" style="color: #00aa63" to="#"
-              >Learn more</router-link
-            >
+
+          <div class="page__item page__item--small">
+            <div class="main-item">
+              <div class="page__item__title main-title">
+                Shop Online with Confidence
+              </div>
+              <div class="page__item__title page__item__content">
+                Safe Deal products you from online security issuse
+              </div>
+              <button class="button button--reverse">Add to Chrome</button>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </v-container>
+    </v-container>
+    <v-container fluid>
+      <v-container>
+        <div class="page page--low-margin page__item--column">
+          <div class="page__title">
+            <div>How to Use</div>
+            <div
+              style="width: 60px; height: 5px; background-color: #00aa63"
+            ></div>
+          </div>
+          <div class="page__item page__item--how-to">
+            <img
+              class="page__item__card__image"
+              :src="require('../assets/img/howTo.svg')"
+              alt=""
+            />
+          </div>
+        </div>
+      </v-container>
+    </v-container>
+
+    <Section
+      v-for="(section, index) in sections"
+      :key="`section-${index}`"
+      :section="section"
+      :reverse="index % 2 == 0 ? true : false"
+    />
+
+    <!-- As seen as -->
     <div class="page page--low-margin" style="flex-direction: column">
       <div class="page__title">As seen as</div>
       <div class="page__item page__item--as-seen-as">
@@ -113,28 +115,35 @@
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Section from "@/components/Section";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 export default {
+  components: { Section, Footer, Header },
   data() {
     return {
       winWidth: 0,
       winHight: 0,
       mobileWidth: 960,
-      pages: [
+      sections: [
         {
           id: 1,
           title: "Find fair price",
           content: "Avoid fake discount - buy best price",
           img: require("../assets/img/page_image_1.svg"),
+          bg: require("../assets/bg__1.png"),
         },
         {
           id: 2,
           title: "Check seller rating",
           content: "Seller reliability ratings will help you to buy safely",
           img: require("../assets/img/page_image_2.svg"),
+          bg: require("../assets/bg__2.png"),
         },
         {
           id: 3,
@@ -142,6 +151,7 @@ export default {
           content:
             "For each product you can quickly find similar ones, even cheaper!",
           img: require("../assets/img/page_image_3.svg"),
+          bg: require("../assets/bg__3.png"),
         },
       ],
     };
@@ -169,6 +179,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.root {
+  padding: 100px 0;
+}
 .page {
   display: flex;
   margin: 400px 0;
@@ -180,6 +193,13 @@ export default {
 }
 .page--low-margin {
   margin: 10px 0;
+}
+.page__title {
+  font-size: 40px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .page__item--how-to {
   padding: 0 100px;
@@ -281,7 +301,7 @@ export default {
   .page__item--big {
     width: 100%;
   }
-  .page__title{
+  .page__title {
     text-align: center;
   }
   .page__item {
@@ -305,6 +325,9 @@ export default {
   }
   .page__item--as-seen-as {
     display: inline-flex;
+    flex-direction: column;
+  }
+  .page__item--column {
     flex-direction: column;
   }
 }

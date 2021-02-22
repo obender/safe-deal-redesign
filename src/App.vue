@@ -1,28 +1,19 @@
 <template>
   <v-app>
-    <Header />
     <v-sheet
       id="scrolling-techniques-7"
       class="overflow-y-auto"
       max-height="100vh"
     >
-      <v-container fluid class="root">
-        <v-container>
-          <v-main>
-            <router-view />
-          </v-main>
-        </v-container>
-      </v-container>
-      <Footer />
+      <router-view />
     </v-sheet>
   </v-app>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
 export default {
-  components: { Header, Footer },
+  components: { Header },
   data: () => ({}),
 };
 </script>
