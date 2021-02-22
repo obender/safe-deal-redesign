@@ -7,21 +7,23 @@
       max-height="100vh"
     >
       <v-container fluid class="root">
-        <v-main>
-          <router-view />
-        </v-main>
+        <v-container>
+          <v-main>
+            <router-view />
+          </v-main>
+        </v-container>
       </v-container>
+      <Footer />
     </v-sheet>
   </v-app>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 export default {
-  components: { Header },
-  data: () => ({
-    //
-  }),
+  components: { Header, Footer },
+  data: () => ({}),
 };
 </script>
 
@@ -29,7 +31,7 @@ export default {
 // $primaryColor: #71DF82;
 $primaryColor: #00aa63;
 
-.t{
+.t {
   border: 1px solid red;
 }
 
@@ -42,8 +44,8 @@ body {
   scrollbar-width: none;
 }
 
-.root{
-  background-image: url('./assets/root__bg.png');
+.root {
+  background-image: url("./assets/root__bg.png");
   background-size: cover;
 }
 
