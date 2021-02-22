@@ -1,5 +1,31 @@
 <template>
   <div>
+    <div class="page page--reverse page--low-margin">
+      <div class="page__item page__item--big">
+        <div>
+          <div :style=" winWidth > mobileWidth? 'margin: 0 100px': 'margin: 0 50px'">
+            <span :style="{ ...style, fontSize: '14px' }">Absulately</span>
+            <div :style="{ ...style, fontSize: '52px' }">Free extention</div>
+          </div>
+          <img
+            class="page__item__card__image"
+            :src="require('../assets/img/card/card.svg')"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="page__item page__item--small">
+        <div class="main-item">
+          <div class="page__item__title main-title">
+            Shop Online with Confidence
+          </div>
+          <div class="page__item__title page__item__content">
+            Safe Deal products you from online security issuse
+          </div>
+          <button class="button button--reverse">Add to Chrome</button>
+        </div>
+      </div>
+    </div>
     <div
       v-for="(page, index) in pages"
       :key="index"
@@ -36,20 +62,21 @@
 export default {
   data() {
     return {
+      winWidth: 0,
+      winHight: 0,
+      mobileWidth: 960,
       pages: [
         {
           id: 1,
           title: "Find fair price",
           content: "Avoid fake discount - buy best price",
           img: require("../assets/img/page_image_1.svg"),
-          bg: require("../assets/img/page_image_1.svg"),
         },
         {
           id: 2,
           title: "Check seller rating",
           content: "Seller reliability ratings will help you to buy safely",
           img: require("../assets/img/page_image_2.svg"),
-          bg: require("../assets/img/page_image_1.svg"),
         },
         {
           id: 3,
@@ -57,10 +84,28 @@ export default {
           content:
             "For each product you can quickly find similar ones, even cheaper!",
           img: require("../assets/img/page_image_2.svg"),
-          bg: require("../assets/img/page_image_1.svg"),
         },
       ],
     };
+  },
+  methods: {
+    handleResize() {
+      this.winWidth = window.innerWidth;
+      this.winHight = window.innerHeight;
+    },
+  },
+  computed: {
+    style() {
+      if (this.winWidth > this.mobileWidth) {
+        return { color: "#fff" };
+      } else {
+        return { color: "#00aa63" };
+      }
+    },
+  },
+  created() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
   },
 };
 </script>
@@ -68,11 +113,19 @@ export default {
 <style lang="scss" scoped>
 .page {
   display: flex;
-  margin: 200px 5px;
+  margin: 200px 0;
+  position: relative;
 }
 .page--reverse {
   display: flex;
   flex-direction: row-reverse;
+}
+.page--low-margin {
+  margin: 10px 0;
+}
+.page__bg {
+  position: absolute;
+  left: 0;
 }
 .page__item {
   display: flex;
@@ -80,9 +133,15 @@ export default {
   align-items: center;
   width: 100%;
 }
-.page__item--left {
+.page__item--column {
+  align-items: flex-start;
+  flex-direction: column;
 }
-.page__item--right {
+.page__item--small {
+  width: 30%;
+}
+.page__item--big {
+  width: 70%;
 }
 .page__item__card {
   padding: 55px 35px;
@@ -108,23 +167,44 @@ export default {
 .page__item__content {
   color: grey;
 }
+.main-item div {
+  margin: 20px 0;
+}
+
+.main-title {
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+}
+@media (max-width: 1140px) {
+  .page__item--small {
+    width: 40%;
+  }
+  .page__item--big {
+    width: 60%;
+  }
+}
 @media (max-width: 960px) {
   .page {
-    display: flex;
     flex-direction: column-reverse;
     margin: 50px 5px;
   }
   .page--reverse {
-    display: flex;
     flex-direction: column-reverse;
+  }
+  .page__item--small {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .page__item--big {
+    width: 100%;
   }
   .page__item {
     padding: 15px;
   }
   .page__item__title {
-    color: #00aa63;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -134,6 +214,10 @@ export default {
   }
   .page__item__title--big {
     font-size: 30px;
+  }
+  .main-item {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

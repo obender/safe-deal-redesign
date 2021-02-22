@@ -1,12 +1,12 @@
 <template>
-  <v-app class="root">
+  <v-app>
     <Header />
     <v-sheet
       id="scrolling-techniques-7"
       class="overflow-y-auto"
       max-height="100vh"
     >
-      <v-container>
+      <v-container fluid class="root">
         <v-main>
           <router-view />
         </v-main>
@@ -29,6 +29,10 @@ export default {
 // $primaryColor: #71DF82;
 $primaryColor: #00aa63;
 
+.t{
+  border: 1px solid red;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -36,6 +40,11 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.root{
+  background-image: url('./assets/root__bg.png');
+  background-size: cover;
 }
 
 .link {
@@ -74,10 +83,5 @@ body {
 .logo {
   width: 50px;
   height: 50px;
-}
-
-.bg {
-  background-image: url("./assets/img/bg-1_copy.png");
-  background-size: cover;
 }
 </style>

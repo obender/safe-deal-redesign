@@ -13,12 +13,12 @@
       :color="scroll > 0 ? 'white' : 'transparent'"
     >
       <div class="header">
-        <div class="header__item header__item--title">
+        <router-link to="#home" class="header__item header__item--title link">
           <v-img :src="logo" class="logo"></v-img>
           <div :class="scroll > 0 ? 'mx-2' : 'mx-2'" style="color: #71df82">
             Safe Deal
           </div>
-        </div>
+        </router-link>
         <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer">
         </v-app-bar-nav-icon>
         <div class="header__item header__item--menu hidden-sm-and-down">
