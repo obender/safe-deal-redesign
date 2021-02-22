@@ -75,6 +75,8 @@
     />
 
     <!-- As seen as -->
+    <v-container>
+      <v-container>
     <div class="page page--low-margin" style="flex-direction: column">
       <div class="page__title">As seen as</div>
       <div class="page__item page__item--as-seen-as">
@@ -115,6 +117,8 @@
         </div>
       </div>
     </div>
+      </v-container>
+    </v-container>
     <Footer />
   </div>
 </template>
