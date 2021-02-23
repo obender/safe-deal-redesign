@@ -1,6 +1,0 @@
-[build]
-  command = "npm run dist"
-  publish = "dist/"
-
-[build.environment]
-  CI = "1"
