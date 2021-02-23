@@ -55,7 +55,7 @@ body {
   width: 100%;
 }
 .logo {
-  width: 50px;
+  padding: 5px;
   height: 50px;
 }
 </style>

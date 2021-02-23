@@ -14,7 +14,7 @@
     >
       <div class="header">
         <router-link to="#home" class="header__item header__item--title link">
-          <v-img :src="logo" class="logo"></v-img>
+          <img :src="logo" class="logo"/>
           <div :class="scroll > 0 ? 'mx-2' : 'mx-2'" style="color: #71df82">
             Safe Deal
           </div>
