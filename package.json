@@ -1,33 +1,42 @@
 {
-  "name": "save-deal-redesign",
-  "version": "0.1.0",
+  "name": "Safe-Deal",
+  "version": "1.0.0",
+  "description": "My majestic Nuxt.js project",
+  "author": "--registry=https://registry.yarnpkg.com",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "dev": "nuxt",
+    "i18n:stats": "vue-i18n-extract report -v './?(pages|layouts)/**/*.?(js|vue)' -l 'locale/texts/**/*.json'",
+    "i18n:extract": "vue-i18n-extract-translations -v './?(pages|layouts)/**/*.?(js|vue)' -l './locale/texts/'  --def-locale -t en",
+    "i18n:translate": "cd tools && yarn translate && cd ..",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "dist": "nuxt generate",
+    "serve": "http-server ./dist -p 3000 -o",
+    "test": "yarn dist && yarn serve"
   },
   "dependencies": {
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuetify": "^2.4.0",
-    "vuex": "^3.4.0"
+    "nuxt": "^2.14.7",
+    "nuxt-i18n": "^6.15.4",
+    "popper.js": "^1.14.6",
+    "vue-social-sharing": "^3.0.4",
+    "vue-sweetalert2": "^4.1.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "node-sass": "^4.12.0",
-    "sass": "^1.32.0",
-    "sass-loader": "^10.0.0",
-    "vue-cli-plugin-vuetify": "~2.1.0",
-    "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.7.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.10.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "http-server": "^0.12.3",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.6",
+    "sass-loader": "^10.1.0",
+    "vue-i18n-extract": "^1.1.10",
+    "vue-i18n-extract-translations": "^0.1.3",
+    "vue-svg-loader": "^0.16.0"
+  }
 }

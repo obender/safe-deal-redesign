@@ -1,0 +1,36 @@
+{
+  "name": "tools",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "translate:russian": "clear && run-s do:init do:ru do:del:previous do:copy:ru do:copy:en do:cleanup",
+    "translate": "clear && run-s do:init do:translate do:del:previous do:copy do:cleanup",
+    "do:translate": "npm run do:hi,he,ru && npm run do:ar,bn,zh-CN && npm run do:pt,fr,es && npm run do:id",
+    "do:ru": "i18n-translate-json AIzaSyBzeLhRsBEYEgPhDnD4vnC74h33IRm1_Fo . en ru",
+    "do:hi,he,ru": "i18n-translate-json AIzaSyBzeLhRsBEYEgPhDnD4vnC74h33IRm1_Fo . en hi,he,ru",
+    "do:ar,bn,zh-CN": "i18n-translate-json AIzaSyBzeLhRsBEYEgPhDnD4vnC74h33IRm1_Fo . en ar,bn,zh-CN",
+    "do:pt,fr,es": "i18n-translate-json AIzaSyBzeLhRsBEYEgPhDnD4vnC74h33IRm1_Fo . en pt,fr,es",
+    "do:id": "i18n-translate-json AIzaSyBzeLhRsBEYEgPhDnD4vnC74h33IRm1_Fo . en id",
+    "do:init": "cp ./../locale/texts/en.json ./en.json",
+    "do:del:previous": "find . -name './../locale/texts/*.json' -type f -delete",
+    "do:copy": "run-s do:copy:ar do:copy:bn do:copy:en do:copy:es  do:copy:fr do:copy:he do:copy:hi do:copy:id do:copy:pt do:copy:ru do:copy:cn ",
+    "do:copy:ar": "cp ./ar.json ./../locale/texts/ar.json",
+    "do:copy:bn": "cp ./bn.json ./../locale/texts/bn.json",
+    "do:copy:en": "cp ./en.json ./../locale/texts/en.json",
+    "do:copy:es": "cp ./es.json ./../locale/texts/es.json",
+    "do:copy:fr": "cp ./fr.json ./../locale/texts/fr.json",
+    "do:copy:he": "cp ./he.json ./../locale/texts/he.json",
+    "do:copy:hi": "cp ./hi.json ./../locale/texts/hi.json",
+    "do:copy:id": "cp ./id.json ./../locale/texts/id.json",
+    "do:copy:pt": "cp ./pt.json ./../locale/texts/pt.json",
+    "do:copy:ru": "cp ./ru.json ./../locale/texts/ru.json",
+    "do:copy:cn": "cp ./zh-CN.json ./../locale/texts/zh.json",
+    "do:cleanup": "rm hi.json he.json ru.json ar.json bn.json pt.json fr.json es.json id.json zh-CN.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "i18n-translate-json": "^1.1.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
