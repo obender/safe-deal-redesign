@@ -5,45 +5,13 @@
         <div class="page">
           <div class="page__container">
             <div class="page__container__header text-primary">
-              <div style="display: flex">
-                Add
-                <v-img
-                  width="25"
-                  height="25"
-                  :src="require('../assets/img/logo.svg')"
-                  class="logo"
-                ></v-img>
-                <span style="font-weight: bold; margin-right: 5px">Safe Deal</span>
-                to your brower now
-              </div>
+              <div style="display: flex">Add <v-img width="25" height="25" :src="require('../assets/img/logo.svg')" class="logo" ></v-img><span style="font-weight: bold; margin-right: 5px">Safe Deal</span>to your brower now</div>
               <div style="display: flex">to choose the best products on</div>
             </div>
             <div class="logos">
-              <div class="logo__container">
-                <img
-                  class="logo"
-                  :src="require('../assets/img/logo/aliExpress.png')"
-                  alt=""
-                />
-              </div>
-              <div class="logo__container">
-                <div>
-                  <img
-                    class="logo"
-                    :src="require('../assets/img/logo/amazon.png')"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="logo__container">
-                <div>
-                  <img
-                    class="logo"
-                    :src="require('../assets/img/logo/ebay.png')"
-                    alt=""
-                  />
-                </div>
-              </div>
+              <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/aliExpress.png')" alt=""/></div>
+              <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/amazon.png')" alt=""/></div>
+              <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/ebay.png')" alt=""/></div>
             </div>
             <div><button class="button button--reverse">Add to Chrome</button></div>
           </div>
@@ -206,11 +174,11 @@ consequat rutrum velit tincidunt ac. Interdum et malesuada fames ac ante ipsum p
   width: auto;
 }
 .bg--footer-1 {
-  background-image: url("../assets/bg_image_1.svg");
+  background-image: url("../assets/bg/bg_footer_image_1.svg");
   background-size: cover;
 }
 .bg--footer-2 {
-  background-image: url("../assets/bg_image_2.svg");
+  background-image: url("../assets/bg/bg_footer_image_2.svg");
   background-size: cover;
   background-color: #dffbef;
 }

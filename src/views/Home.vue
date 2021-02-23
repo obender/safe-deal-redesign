@@ -1,35 +1,18 @@
 <template>
   <div>
+    <!-- Header -->
     <Header />
-    <v-container
-      fluid
-      class="root"
-      :style="`background-image: url('${require('../assets/bg__top.png')}'); background-size: cover;`"
-    >
+    <!-- Top page -->
+    <v-container fluid class="root" :style="`background-image: url('${require('../assets/bg/bg_0.svg')}'); background-size: cover;`">
       <v-container>
         <div class="page page--reverse page--low-margin">
           <div class="page__item page__item--big">
             <div>
-              <div
-                :style="
-                  winWidth > mobileWidth ? 'margin: 0 100px' : 'margin: 0'
-                "
-              >
+              <div :style=" winWidth > mobileWidth ? 'margin: 0 100px' : 'margin: 0'">
                 <span :style="{ ...style, fontSize: '14px' }">Absulately</span>
-                <div
-                  :style="{
-                    ...style,
-                    fontSize: winWidth > mobileWidth ? '52px' : '32px',
-                  }"
-                >
-                  Free extention
-                </div>
+                <div :style="{ ...style, fontSize: winWidth > mobileWidth ? '52px' : '32px',}">Free extention</div>
               </div>
-              <img
-                class="page__item__card__image"
-                :src="require('../assets/img/card/card.svg')"
-                alt=""
-              />
+              <img class="page__item__card__image" :src="require('../assets/img/card/card.svg')" alt=""/>
             </div>
           </div>
 
@@ -47,78 +30,39 @@
         </div>
       </v-container>
     </v-container>
+    <!-- Page How to use -->
     <v-container fluid>
       <v-container>
         <div class="page page--low-margin page__item--column">
           <div class="page__title">
             <div>How to Use</div>
-            <div
-              style="width: 60px; height: 5px; background-color: #00aa63"
-            ></div>
+            <div style="width: 60px; height: 5px; background-color: #00aa63"></div>
           </div>
           <div class="page__item page__item--how-to">
-            <img
-              class="page__item__card__image"
-              :src="require('../assets/img/howTo.svg')"
-              alt=""
-            />
+            <img class="page__item__card__image" :src="require('../assets/img/howTo.svg')" alt="" />
           </div>
         </div>
       </v-container>
     </v-container>
-
-    <Section
-      v-for="(section, index) in sections"
-      :key="`section-${index}`"
-      :section="section"
-      :reverse="index % 2 == 0 ? true : false"
-    />
-
-    <!-- As seen as -->
+    <!-- Page 1, 2, 3 -->
+    <Section v-for="(section, index) in sections" :key="`section-${index}`" :section="section" :reverse="index % 2 == 0 ? true : false"/>
+    <!-- Page As seen as -->
     <v-container>
       <v-container>
-    <div class="page page--low-margin" style="flex-direction: column">
-      <div class="page__title">As seen as</div>
-      <div class="page__item page__item--as-seen-as">
-        <div class="logo__container">
-          <img
-            class="logo"
-            :src="require('../assets/img/logo/medium.png')"
-            alt=""
-          />
+        <div class="page page--low-margin" style="flex-direction: column">
+          <div class="page__title">As seen as</div>
+          <!-- Logos -->
+          <div class="page__item page__item--as-seen-as">
+            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/medium.png')" alt="" /></div>
+            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/google.png')" alt="" /></div>
+            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/slack.png')" alt="" /></div>
+            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/instagram.png')" alt=""/></div>
+            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/atlassian.png')" alt=""/></div>
+          </div>
         </div>
-        <div class="logo__container">
-          <img
-            class="logo"
-            :src="require('../assets/img/logo/google.png')"
-            alt=""
-          />
-        </div>
-        <div class="logo__container">
-          <img
-            class="logo"
-            :src="require('../assets/img/logo/slack.png')"
-            alt=""
-          />
-        </div>
-        <div class="logo__container">
-          <img
-            class="logo"
-            :src="require('../assets/img/logo/instagram.png')"
-            alt=""
-          />
-        </div>
-        <div class="logo__container">
-          <img
-            class="logo"
-            :src="require('../assets/img/logo/atlassian.png')"
-            alt=""
-          />
-        </div>
-      </div>
-    </div>
       </v-container>
     </v-container>
+    <!-- Footer -->
     <Footer />
   </div>
 </template>
@@ -140,14 +84,14 @@ export default {
           title: "Find fair price",
           content: "Avoid fake discount - buy best price",
           img: require("../assets/img/page_image_1.svg"),
-          bg: require("../assets/bg__1.png"),
+          bg: require("../assets/bg/bg_1.svg"),
         },
         {
           id: 2,
           title: "Check seller rating",
           content: "Seller reliability ratings will help you to buy safely",
           img: require("../assets/img/page_image_2.svg"),
-          bg: require("../assets/bg__2.png"),
+          bg: require("../assets/bg/bg_2.svg"),
         },
         {
           id: 3,
@@ -155,7 +99,7 @@ export default {
           content:
             "For each product you can quickly find similar ones, even cheaper!",
           img: require("../assets/img/page_image_3.svg"),
-          bg: require("../assets/bg__3.png"),
+          bg: require("../assets/bg/bg_3.svg"),
         },
       ],
     };

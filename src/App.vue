@@ -1,30 +1,17 @@
 <template>
   <v-app>
-    <v-sheet
-      id="scrolling-techniques-7"
-      class="overflow-y-auto"
-      max-height="100vh"
-    >
+    <v-sheet id="scrolling-techniques-7" class="overflow-y-auto" max-height="100vh">
       <router-view />
     </v-sheet>
   </v-app>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-export default {
-  components: { Header },
-  data: () => ({}),
-};
+export default {};
 </script>
 
 <style lang="scss">
-// $primaryColor: #71DF82;
 $primaryColor: #00aa63;
-
-.t {
-  border: 1px solid red;
-}
 
 body::-webkit-scrollbar {
   display: none;
@@ -34,12 +21,6 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-.root {
-  background-image: url("./assets/root__bg.png");
-  background-size: cover;
-}
-
 .link {
   text-decoration: none;
   font-size: 23px;
