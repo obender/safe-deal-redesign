@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-sheet id="scrolling-techniques-7" class="overflow-y-auto" max-height="100vh">
-      <router-view />
+      <nuxt />
     </v-sheet>
   </v-app>
 </template>

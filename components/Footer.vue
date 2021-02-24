@@ -180,10 +180,10 @@ consequat rutrum velit tincidunt ac. Interdum et malesuada fames ac ante ipsum p
 .bg--footer-2 {
   background-image: url("../assets/bg/bg_footer_image_2.svg");
   background-size: cover;
-  background-color: #dffbef;
+  background-color: #00dd8020;
 }
 .bg--footer-3 {
-  background-color: #dffbef;
+  background-color: #00dd8020;
 }
 
 .review {

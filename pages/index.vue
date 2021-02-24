@@ -3,7 +3,7 @@
     <!-- Header -->
     <Header />
     <!-- Top page -->
-    <v-container fluid class="root" :style="`background-image: url('${require('../assets/bg/bg_0.svg')}'); background-size: cover;`">
+    <v-container fluid class="root" :style="`background-image: url('${require('~/assets/bg/bg_0.svg')}');`">
       <v-container>
         <div class="page page--reverse page--low-margin">
           <div class="page__item page__item--big">
@@ -12,7 +12,7 @@
                 <span :style="{ ...style, fontSize: '14px' }">Absulately</span>
                 <div :style="{ ...style, fontSize: winWidth > mobileWidth ? '52px' : '32px',}">Free extention</div>
               </div>
-              <img class="page__item__card__image" :src="require('../assets/img/card/card.svg')" alt=""/>
+              <img class="page__item__card__image" :src="require('~/assets/img/card/card.svg')" alt=""/>
             </div>
           </div>
 
@@ -39,7 +39,7 @@
             <div style="width: 60px; height: 5px; background-color: #00aa63"></div>
           </div>
           <div class="page__item page__item--how-to">
-            <img class="page__item__card__image" :src="require('../assets/img/howTo.svg')" alt="" />
+            <img class="page__item__card__image" :src="require('~/assets/img/howTo.svg')" alt="" />
           </div>
         </div>
       </v-container>
@@ -53,11 +53,11 @@
           <div class="page__title">As seen as</div>
           <!-- Logos -->
           <div class="page__item page__item--as-seen-as">
-            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/medium.png')" alt="" /></div>
-            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/google.png')" alt="" /></div>
-            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/slack.png')" alt="" /></div>
-            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/instagram.png')" alt=""/></div>
-            <div class="logo__container"><img class="logo" :src="require('../assets/img/logo/atlassian.png')" alt=""/></div>
+            <div class="logo__container"><img class="logo" :src="require('~/assets/img/logo/medium.png')" alt="" /></div>
+            <div class="logo__container"><img class="logo" :src="require('~/assets/img/logo/google.png')" alt="" /></div>
+            <div class="logo__container"><img class="logo" :src="require('~/assets/img/logo/slack.png')" alt="" /></div>
+            <div class="logo__container"><img class="logo" :src="require('~/assets/img/logo/instagram.png')" alt=""/></div>
+            <div class="logo__container"><img class="logo" :src="require('~/assets/img/logo/atlassian.png')" alt=""/></div>
           </div>
         </div>
       </v-container>
@@ -83,23 +83,23 @@ export default {
           id: 1,
           title: "Find fair price",
           content: "Avoid fake discount - buy best price",
-          img: require("../assets/img/page_image_1.svg"),
-          bg: require("../assets/bg/bg_1.svg"),
+          img: require("~/assets/img/page_image_1.svg"),
+          bg: require("~/assets/bg/bg_1.svg"),
         },
         {
           id: 2,
           title: "Check seller rating",
           content: "Seller reliability ratings will help you to buy safely",
-          img: require("../assets/img/page_image_2.svg"),
-          bg: require("../assets/bg/bg_2.svg"),
+          img: require("~/assets/img/page_image_2.svg"),
+          bg: require("~/assets/bg/bg_2.svg"),
         },
         {
           id: 3,
           title: "Choose an alternative",
           content:
             "For each product you can quickly find similar ones, even cheaper!",
-          img: require("../assets/img/page_image_3.svg"),
-          bg: require("../assets/bg/bg_3.svg"),
+          img: require("~/assets/img/page_image_3.svg"),
+          bg: require("~/assets/bg/bg_3.svg"),
         },
       ],
     };
@@ -120,8 +120,10 @@ export default {
     },
   },
   created() {
-    window.addEventListener("resize", this.handleResize);
-    this.handleResize();
+    if(process.browser){
+      window.addEventListener("resize", this.handleResize);
+      this.handleResize();
+    }
   },
 };
 </script>
@@ -129,6 +131,7 @@ export default {
 <style lang="scss" scoped>
 .root {
   padding: 100px 0;
+  background-size: cover;
 }
 .page {
   display: flex;

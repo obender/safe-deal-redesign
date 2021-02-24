@@ -1,43 +1,22 @@
 <template>
-  <v-container
-    fluid
-    class="root"
-    :style="`background-image: url('${section.bg}');`"
-  >
+  <v-container fluid class="root" :style="`background-image: url('${section.bg}');`" >
     <v-container>
       <div :class="reverse ? 'section' : 'section section--reverse'">
         <div class="section__item section__item--left">
-          <div class="section__item__card">
-            <img class="section__item__card__image" :src="section.img" alt="" />
-          </div>
+          <div class="section__item__card"><img class="section__item__card__image" :src="section.img" alt="" /></div>
         </div>
         <div class="section__item section__item--right">
           <div class="section__item__title">
-            <div class="section__item__title section__item__title--small">
-              0{{ section.id }}
-            </div>
-            <div class="section__item__title section__item__title--big">
-              {{ section.title }}
-            </div>
-            <div class="section__item__content">
-              {{ section.content }}
-            </div>
-            <div>
-              <router-link
-                class="link link--small"
-                style="color: #00aa63"
-                to="#"
-                >Learn more</router-link
-              >
-            </div>
+            <div class="section__item__title section__item__title--small">0{{ section.id }}</div>
+            <div class="section__item__title section__item__title--big">{{ section.title }}</div>
+            <div class="section__item__content">{{ section.content }}</div>
+            <div><NuxtLink  class="link link--small" style="color: #00aa63" to="#" >Learn more</NuxtLink ></div>
           </div>
         </div>
       </div>
     </v-container>
   </v-container>
 </template>
-
-
 
 <script>
 export default {
@@ -69,8 +48,10 @@ export default {
     },
   },
   created() {
-    window.addEventListener("resize", this.handleResize);
-    this.handleResize();
+    if(process.browser){
+      window.addEventListener("resize", this.handleResize);
+      this.handleResize();
+    }
   },
 };
 </script>

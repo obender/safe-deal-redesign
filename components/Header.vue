@@ -13,27 +13,19 @@
       :color="scroll > 0 ? 'white' : 'transparent'"
     >
       <div class="header">
-        <router-link to="#home" class="header__item header__item--title link">
+        <NuxtLink  to="#home" class="header__item header__item--title link">
           <img :src="logo" class="logo"/>
           <div :class="scroll > 0 ? 'mx-2' : 'mx-2'" style="color: #71df82">
             Safe Deal
           </div>
-        </router-link>
-        <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer">
-        </v-app-bar-nav-icon>
+        </NuxtLink >
+        <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
         <div class="header__item header__item--menu hidden-sm-and-down">
           <div v-for="(menu, index) in menus" :key="index" class="header__item">
-            <router-link
-              :style="scroll > 0 ? 'color: #71DF82' : 'color: white'"
-              class="link mx-3"
-              :to="menu.link"
-              >{{ menu.name }}</router-link
-            >
+            <NuxtLink :style="scroll > 0 ? 'color: #71DF82' : 'color: white'" class="link mx-3" :to="menu.link">{{ menu.name }}</NuxtLink>
           </div>
           <div class="header__menu__item mx-6">
-            <button :class="scroll > 0 ? 'button button--reverse' : 'button'">
-              Add to Chrome
-            </button>
+            <button :class="scroll > 0 ? 'button button--reverse' : 'button'">Add to Chrome</button>
           </div>
         </div>
       </div>
