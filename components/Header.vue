@@ -13,7 +13,7 @@
       :color="scroll > 0 ? 'white' : 'transparent'"
     >
       <div class="header">
-        <NuxtLink  to="#home" class="header__item header__item--title link">
+        <NuxtLink  to="/" class="header__item header__item--title link">
           <img :src="logo" class="logo"/>
           <div :class="scroll > 0 ? 'mx-2' : 'mx-2'" style="color: #71df82">
             Safe Deal
@@ -30,13 +30,7 @@
         </div>
       </div>
     </v-app-bar>
-    <v-navigation-drawer
-      class="hidden-md-and-up"
-      v-model="drawer"
-      absolute
-      temporary
-      right
-    >
+    <v-navigation-drawer class="hidden-md-and-up" v-model="drawer" app temporary right>
       <v-list nav dense>
         <v-list-item-group active-class="deep-purple--text text--accent-4">
           <router-link

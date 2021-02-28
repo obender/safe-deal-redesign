@@ -1,13 +1,19 @@
 <template>
   <v-app>
     <v-sheet id="scrolling-techniques-7" class="overflow-y-auto" max-height="100vh">
+      <Header />
       <nuxt />
+      <Footer />
     </v-sheet>
   </v-app>
 </template>
 
 <script>
-export default {};
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+export default {
+  components: { Header, Footer }
+};
 </script>
 
 <style lang="scss">

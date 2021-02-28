@@ -46,6 +46,7 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
+      name: 'Safe Deal'
     }
   },
 
