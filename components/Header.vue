@@ -10,12 +10,12 @@
       content-class="header"
       fixed
       height="80px"
-      :color="scroll > 0 ? 'white' : 'transparent'"
+      :color="scroll > 0 ? '#fff' : currentRoutePath == '/' ? 'transparent':  '#00aa63'"
     >
       <div class="header">
         <NuxtLink  to="/" class="header__item header__item--title link">
           <img :src="logo" class="logo"/>
-          <div :class="scroll > 0 ? 'mx-2' : 'mx-2'" style="color: #71df82">
+          <div :class="scroll > 0 ? 'mx-2' : 'mx-2'" :style="{color: currentRoutePath == '/' ? '#00aa63': scroll > 0 ? '#00aa63' : '#fff'}">
             Safe Deal
           </div>
         </NuxtLink >
@@ -75,6 +75,9 @@ export default {
       }
       return this.$refs.topbar.currentScroll;
     },
+    currentRoutePath() {
+        return this.$route.fullPath;
+    }
   },
   mounted() {
     this.isMounted = true;
